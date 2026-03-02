@@ -6,19 +6,11 @@ import {
   TabsContents,
   TabsContent,
 } from "@/components/ui/tabs";
-import { useCarColorsStore } from "@/store/car-colors";
 import clsx from "clsx";
-
-const WHEEL_COLORS = [
-  { name: "Silver", value: "#C0C0C0" },
-  { name: "Black", value: "#111111" },
-  { name: "Gold", value: "#D4AF37" },
-  { name: "Bronze", value: "#CD7F32" },
-];
+import { CustomOption } from "../common/custom-option";
+import { CarColorPicker } from "../common/car-color-picker";
 
 export function Panel({ className }: { className?: string }) {
-  const { colors, setPartColor } = useCarColorsStore();
-
   return (
     <Card
       className={clsx(
@@ -35,7 +27,11 @@ export function Panel({ className }: { className?: string }) {
             <TabsTrigger value='information'>Information</TabsTrigger>
             <TabsTrigger value='customize'>Customize</TabsTrigger>
           </TabsList>
-          <TabsContents>
+          <TabsContents
+            transition={{
+              type: "spring",
+            }}
+          >
             <TabsContent value='information' className='mt-4 h-50'>
               <div className='text-sm text-foreground space-y-2'>
                 <p>
@@ -51,18 +47,10 @@ export function Panel({ className }: { className?: string }) {
             </TabsContent>
             <TabsContent value='customize' className='mt-4 overflow-auto h-50'>
               <div className='space-y-4 h-fit'>
-                <h4 className='text-sm font-medium mb-2'>Wheels</h4>
-                <div className='flex gap-2'>
-                  {WHEEL_COLORS.map((color) => (
-                    <button
-                      key={color.value}
-                      className={`w-8 h-8 rounded-full border-2 ${colors.wheels === color.value ? "border-primary" : "border-transparent"}`}
-                      style={{ backgroundColor: color.value }}
-                      onClick={() => setPartColor("wheels", color.value)}
-                      title={color.name}
-                    />
-                  ))}
-                </div>
+                <CustomOption
+                  title='Wheel Color'
+                  selector={<CarColorPicker carPart='wheels' />}
+                />
               </div>
             </TabsContent>
           </TabsContents>

@@ -8,10 +8,12 @@ import {
 import { Model } from "./components/models/cars/pagani/Pagani";
 import { Suspense } from "react";
 import { Panel } from "./components/layouts/panel";
+import LoadingScreen from "./components/layouts/loading";
 
 export default function App() {
   return (
     <div className='w-screen h-screen relative'>
+      <LoadingScreen />
       <Panel className='absolute top-4 left-4 z-10' />
       <div className='w-full h-full'>
         <Canvas frameloop='demand' dpr={[1, 1.5]}>
