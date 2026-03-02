@@ -1,5 +1,6 @@
 import { useGLTF } from "@react-three/drei";
 import type { ComponentProps } from "react";
+import { Wheels } from "./wheels";
 
 export function Model(props: ComponentProps<"group">) {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -258,12 +259,7 @@ export function Model(props: ComponentProps<"group">) {
         rotation={[0.006, 0, 0]}
         scale={0.01}
       />
-      <mesh
-        geometry={nodes.Object_1403.geometry}
-        material={materials.int_window_46}
-        rotation={[0.006, 0, 0]}
-        scale={0.01}
-      />
+      <Wheels geometry={nodes.Object_1403.geometry} />
       <mesh
         geometry={nodes.Object_1410.geometry}
         material={materials.int_window_47}
