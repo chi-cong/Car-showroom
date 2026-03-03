@@ -21,7 +21,7 @@ export default function LoadingScreen() {
           </div>
 
           {/* A minimalist progress bar */}
-          <div className='w-64 h-[2px] bg-neutral-800 overflow-hidden'>
+          <div className='w-64 h-0.5 bg-neutral-800 overflow-hidden'>
             <motion.div
               className='h-full bg-white'
               initial={{ width: "0%" }}
