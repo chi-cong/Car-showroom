@@ -6,32 +6,30 @@ import {
   TabsContents,
   TabsContent,
 } from "@/components/ui/tabs";
-import clsx from "clsx";
 import { CustomOption } from "@/components/common/custom-option";
 import { CarColorPicker } from "../common/car-color-picker";
 import { useShowcaseModeStore } from "@/store/showcase-mode";
 import { Button } from "@/components/ui/button";
 import { useCanvasStateStore } from "@/store/canvas-state";
 
-export function Panel({ className }: { className?: string }) {
+export function Panel() {
   const { setIsShowcaseMode, isShowcaseMode } = useShowcaseModeStore();
   const { setFrameloop } = useCanvasStateStore();
   return (
-    <Card
-      className={clsx(
-        "backdrop-blur-md bg-background/20 border-white/20 w-80 absolute top-4 left-4 z-20 ",
-        className,
-      )}
-    >
-      <CardHeader>
-        <CardTitle>Pagani</CardTitle>
-      </CardHeader>
-      <CardContent>
-        <Tabs defaultValue='information'>
-          <TabsList className='w-full bg-transparent border border-gray-50/50'>
-            <TabsTrigger value='information'>Information</TabsTrigger>
-            <TabsTrigger value='customize'>Customize</TabsTrigger>
-          </TabsList>
+    <Tabs defaultValue='information'>
+      <TabsList className='bg-background/20 backdrop-blur-lg absolute w-50 h-8 top-8 left-1/2 right-1/2 z-20'>
+        <TabsTrigger value='information'>Information</TabsTrigger>
+        <TabsTrigger value='customize'>Customize</TabsTrigger>
+      </TabsList>
+      <Card
+        className={
+          "backdrop-blur-md bg-background/20 border-white/20 w-80 absolute top-24 left-4 z-20 "
+        }
+      >
+        <CardHeader>
+          <CardTitle>Pagani</CardTitle>
+        </CardHeader>
+        <CardContent>
           <TabsContents
             transition={{
               type: "spring",
@@ -71,8 +69,8 @@ export function Panel({ className }: { className?: string }) {
               </div>
             </TabsContent>
           </TabsContents>
-        </Tabs>
-      </CardContent>
-    </Card>
+        </CardContent>
+      </Card>
+    </Tabs>
   );
 }

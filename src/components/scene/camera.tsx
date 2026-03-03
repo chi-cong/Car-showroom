@@ -69,7 +69,7 @@ export const Camera = () => {
       maxPolarAngle={Math.PI / 2.1}
       minPolarAngle={Math.PI / 4}
       maxDistance={10}
-      minDistance={4}
+      minDistance={3}
     />
   );
 };

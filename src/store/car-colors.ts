@@ -9,7 +9,7 @@ interface CarColorsState {
 }
 
 export const useCarColorsStore = create<CarColorsState>((set) => ({
-  colors: { wheels: "gray", body: "#111111" },
+  colors: { wheels: "gray", body: "#40c9ea" },
   selectedColor: null,
   addColor: (color) => set((state) => ({ colors: { ...state.colors, color } })),
   setPartColor: (part, color) =>

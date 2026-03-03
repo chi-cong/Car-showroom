@@ -11,7 +11,7 @@ export const Blinker = () => {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{
-            duration: 0.8,
+            duration: 0.3,
             ease: "easeInOut",
           }}
           className='bg-black absolute w-full h-full z-10'

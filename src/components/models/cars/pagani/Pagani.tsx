@@ -1,12 +1,14 @@
 import { useGLTF } from "@react-three/drei";
 import type { ComponentProps } from "react";
 import { Wheels } from "./wheels";
+import { Body } from "./body";
 
 export function Model(props: ComponentProps<"group">) {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const { nodes, materials } = useGLTF("/pagani-transformed.glb") as any;
   return (
     <group {...props} dispose={null}>
+      {/* wing */}
       <mesh
         geometry={nodes.Object_9.geometry}
         material={materials.int_window}
@@ -157,12 +159,7 @@ export function Model(props: ComponentProps<"group">) {
         rotation={[0.006, 0, 0]}
         scale={0.01}
       />
-      <mesh
-        geometry={nodes.Object_602.geometry}
-        material={materials.int_window_26}
-        rotation={[0.006, 0, 0]}
-        scale={0.01}
-      />
+      <Body geometry={nodes.Object_602.geometry} />
       <mesh
         geometry={nodes.Object_609.geometry}
         material={materials.PaletteMaterial005}
